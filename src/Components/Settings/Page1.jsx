@@ -30,7 +30,7 @@ const Settings = () => {
   };
 
   return (
-    <div dir={isRtl ? 'rtl' : 'ltr'} style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: '100%' }}>
+    <div dir={isRtl ? 'rtl' : 'ltr'} className={enableDarkMode ? 'dark-theme' : ''} style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: '100%' }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap');
@@ -50,6 +50,7 @@ const Settings = () => {
           flex-direction: column;
           gap: 20px;
           background-color: #f7f6f4;
+          transition: background-color 0.3s ease;
         }
 
         .page-header-title {
@@ -68,6 +69,7 @@ const Settings = () => {
           display: flex;
           flex-direction: column;
           gap: 16px;
+          transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
         .card-title {
@@ -105,6 +107,7 @@ const Settings = () => {
           background-color: #ffffff;
           outline: none;
           text-align: ${isRtl ? 'right' : 'left'};
+          transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
         .form-input:focus {
@@ -165,6 +168,36 @@ const Settings = () => {
           height: 18px;
           accent-color: blue;
           cursor: pointer;
+        }
+
+        /* Dark Theme Overrides */
+        .dark-theme .page-body {
+          background-color: #111827;
+        }
+
+        .dark-theme .page-header-title,
+        .dark-theme .card-title,
+        .dark-theme .preference-label {
+          color: #f9fafb;
+        }
+
+        .dark-theme .card {
+          background: #1f2937;
+          border-color: #374151;
+        }
+
+        .dark-theme .form-label {
+          color: #d1d5db;
+        }
+
+        .dark-theme .form-input {
+          background-color: #374151;
+          color: #f9fafb;
+          border-color: #4b5563;
+        }
+
+        .dark-theme .preference-row {
+          border-bottom-color: #374151;
         }
 
         /* Media Queries for Small Screens */
